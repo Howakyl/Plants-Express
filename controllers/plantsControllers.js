@@ -6,7 +6,7 @@ const plants = require ('../models/Plant');
 //Plant HOME Index
 router.get('/' , (req,res) => {
     res.render('plants/indexPlant' , {
-        plants: plants
+        plants:plants
     });
     // res.send('is it working??');
 });
@@ -37,6 +37,7 @@ router.get('/:plantIndex' , (req,res) => {
     if(plants[plantIndex]) {
         res.render('plants/showPlantInfo' , {
             plants: plant,
+            plantIndex: plantIndex,
         });
     } else {
         res.render('plants/showPlantInfo',  {
@@ -46,5 +47,14 @@ router.get('/:plantIndex' , (req,res) => {
 });
 
 
-//
+//UPDATE plants
+// router.put('/:plantIndex' , (req,res) => {
+//     const plantIndex = req.params.plantIndex;
+// })
+
+
+
+
+
+
 module.exports = router;

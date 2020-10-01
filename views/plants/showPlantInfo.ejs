@@ -6,6 +6,13 @@
     <title>Plant Info</title>
 </head>
 <body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/plants">All Plants</a>
+        <a href="/plants/new">Add Plant</a>
+      </nav>
+
+
     <h1>Plant Profile</h1>
 
     <strong>Plant:</strong> <%= plants.name %>
@@ -15,5 +22,13 @@
     <% } else { %>
         <p>This plant doesn't have holes.</p>
     <% } %>
+
+    <form action="/plants/<%= plantIndex %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Plant" />
+      </form>
+    
+      <form action="/plants/<%= plantIndex %>/edit" method="GET">
+        <input type="submit" value="Edit Plant" />
+      </form>
 </body>
 </html>

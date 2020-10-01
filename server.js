@@ -8,7 +8,7 @@ app.set('view engine' , 'ejs');
 
 //middleware
 app.use(bodyParser.urlencoded({extended: false}));
-
+app.use(methodOverride('_method'));
 //plants controller
 const plantController = require('./controllers/plantsControllers');
 const plants = require('./models/Plant');
