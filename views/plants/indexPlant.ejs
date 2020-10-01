@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plants Express</title>
+</head>
+<body>
+    <h1>Plants Express</h1>
+
+    <ul>
+    
+        <% for (let i = 0; i < plants.length; i++) { %>
+          <li style="margin-bottom: 20px;">
+            <a href="/plants/<%= i %>">
+              <%= plants[i].name %>
+            </a>    
+          </li>
+        <% } %>
+    
+      </ul>
+    
+</body>
+</html>
