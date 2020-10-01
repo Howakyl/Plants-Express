@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Plant</title>
+</head>
+<body>
+    <h1>Add A New Plant</h1>
+
+    <form action="/plants" method="POST">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" />
+        </div>
+    
+        <div>
+          <label for="hasHoles">Has Holes?</label>
+          <input type="checkbox" id="hasHoles" name="hasHoles" />
+        </div>
+    
+        <!-- <button type="submit">Add Fruit</button> -->
+        <input type="submit" value="Add Plant" />
+      </form>
+</body>
+</html>

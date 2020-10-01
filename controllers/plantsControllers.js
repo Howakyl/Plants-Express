@@ -11,7 +11,25 @@ router.get('/' , (req,res) => {
     // res.send('is it working??');
 });
 
-//Plant INFO 
+//NEW plant
+router.get('/new' , (req,res) => {
+    res.render('plants/newPlant');
+})
+
+//CREATE plant
+router.post('/' , (req,res) => {
+    console.log(req.body);
+    if ( req.body.hasHoles === 'on') {
+        req.body.hasHoles = true;
+    } else {
+        req.body.hasHoles = false;
+    }
+
+    plants.push(req.body);
+    res.redirect(`/plants/${plants.length - 1}`);
+})
+
+//Plant INFO - SHOW
 router.get('/:plantIndex' , (req,res) => {
     const plantIndex = req.params.plantIndex;
     const plant = plants[plantIndex];
@@ -27,4 +45,6 @@ router.get('/:plantIndex' , (req,res) => {
     }
 });
 
+
+//
 module.exports = router;

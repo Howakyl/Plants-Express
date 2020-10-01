@@ -6,7 +6,8 @@ const PORT = 4000;
 
 app.set('view engine' , 'ejs');
 
-
+//middleware
+app.use(bodyParser.urlencoded({extended: false}));
 
 //plants controller
 const plantController = require('./controllers/plantsControllers');
