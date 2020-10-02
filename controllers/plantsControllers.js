@@ -47,10 +47,46 @@ router.get('/:plantIndex' , (req,res) => {
 });
 
 
+//REMOVE plants
+router.delete('/:plantIndex' , (req,res) => {
+    console.log(plants);
+
+    plants.splice(req.params.plantIndex, 1);
+
+    console.log(plants);
+
+    res.redirect('/plants');
+})
+
+//DO THIS FIRST FOR EDITING PLANT
+router.get('/:plantIndex/edit' , (req,res) => {
+    const plantIndex = req.params.plantIndex;
+
+    res.render('plants/editPlant' , {
+        plants: plants[plantIndex],
+        plantIndex: plantIndex,
+        hasHoles: plants.hasHoles
+    });
+});
+
+
 //UPDATE plants
-// router.put('/:plantIndex' , (req,res) => {
-//     const plantIndex = req.params.plantIndex;
-// })
+router.put('/:plantIndex/' , (req,res) => {
+    const plantIndex = req.params.plantIndex;
+    //GET DATA FROM REQUEST BODY
+    console.log(req.body);
+
+    const newPlant = {
+        name: req.body.name,
+        hasHoles: req.body.hasHoles === 'on' ? true : false
+    }
+
+    console.log(newPlant);
+
+    plants.splice(plantIndex, 1, newPlant);
+
+    res.redirect(`/plants/${plantIndex}`);
+})
 
 
 
